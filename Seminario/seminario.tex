@@ -1,0 +1,134 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{\Large \bfseries Seminário 2 - Notas\\Simplicidade de An, para $n \geq 5$}
+\author{Davi Bossatto \\ Enzo Lavezzo \\ Yuri Florentino \\}
+\date{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{xcolor}
+\usepackage{csquotes}
+
+\newtheorem*{theorem}{Teorema}
+\newtheorem*{proposition}{Proposição}
+\newtheorem*{lemma}{Lema}
+\newtheorem*{corollary}{Corolário}
+\theoremstyle{definition}
+\newtheorem{definition}{Definição}
+\theoremstyle{remark}
+\newtheorem*{remark}{Observação}
+\newtheorem*{example}{Exemplo}
+
+\usepackage[top=1.5cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
+\setlength {\marginparwidth }{1cm}
+
+\begin{document}
+
+\maketitle
+
+\section{$A_n$ e as equações de quinto grau}
+
+Agora que vimos a Simplicidade dos grupos alternados de ordem maior ou igual que cinco, estamos mais próximos de entender porque equações de quinto grau ou mais não possuem uma 
+fórmula explicita para suas raizes. 
+
+Precisamos antes, relembrar algumas definições e provar agluns resultados vistos em aula.
+
+\begin{definition}
+    Seja G um grupo. Uma sequencia de subgrupos
+    \[H^{\bullet}: \{e\} \leq H_1 \leq H_2 \leq \dots \leq H_n = G\]
+    é chamada série subnormal se $H_i \vartriangleleft H_{i+1}$. 
+    Os grupos $H_i/H_{i+1}$ são chamados de fatores da série.
+\end{definition}
+
+\begin{definition}
+    Um grupo G é solúvel se possui uma série subnormal, tal que todo grupo fator é abeliano.
+\end{definition}
+
+\begin{definition}
+    Dado um grupo G, definimos o grupo derivado de G por $G' = [G, G]$.
+    De modo mais geral definimos, $G^{(0)} = G$ e $G^{(i+1)} = [G^{(i)}, G^{(i)}]$. 
+\end{definition}
+
+\begin{proposition}
+    Sejam G um grupo e G' o seu grupo derivado. Então valem:
+    \begin{enumerate}
+        \item $G/G'$ é abeliano;
+        \item $G'$ é o menor subgrupo normal de G tal que se $H \lhd G$ com $G/H$ abeliano, então $G' \subseteq  H$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Sejam $aG', bG' \in G/G'$. Para mostrar que $G/G'$ é abeliano, precisamos verificar que:
+    \[abG' = baG'\]
+    Isso é equivalente a mostrar que $a^{-1}b^{-1}ab \in G'$. Mas note que $[a, b] = a^{-1}b^{-1}ab$ é um comutador,
+    logo por definição pertence a $G'$.
+    Suponha agora que $H \vartriangleleft G$ é um subgrupo normal tal que $G/H$ é abeliano. Queremos mostrar que $G' \subseteq H$.
+    Se $G/H$ é abeliano, então como vimos anteriormente, $ a^{-1}b^{-1}ab \in H$, ou seja, $[a, b] \in H$.
+    Como $G'$ é gerado por todos os comutadores $[a, b]$ e todos eles pertencem a H, segue que $G' \subseteq H$, uma vez que, 
+    H é o grupo que contém todos os geradores de $G'$.
+\end{proof}
+
+Com esses resultados, podemos agora demonstrar o seguinte teorema
+
+\begin{theorem}
+    Seja G um grupo. Então G é solúvel se e somente se existe $n \in \mathbb{N}$ tal que $G^{(n)} = \{e_G\}$. 
+\end{theorem}
+
+\begin{proof}
+    $\Rightarrow $: Suponha que G é solúvel, e considere a seguinte série subnormal
+    \[H^{\bullet}: \{e\} \leq H_1 \leq \dots \leq H_n = G\]
+    com todos os grupos fatores abelianos.
+    Como temos que $H_n/H_{n-1}$ é abeliano, do resultado anterior segue que $G'\subseteq H_{n-1}$.
+    Novamente pela proposição, $H_{n-1}/H_{n-2}$ é abeliano e então $H_{n-1}' \subseteq H_{n-2}$.
+    Mas $G' \subseteq H_{n-1}$ , donde segue que $G^{(2)} \subseteq H_{n-1}' \subseteq H_{n-2}$.
+    Se repetirmos o mesmo processo para os demais grupos fatores, chegamos em $G^{(n)} \subseteq \{e\}$, o que queriamos.
+    $\Leftarrow $: Suponha agora que exista $n \in \mathbb{N}$ tal que $G^{(n)} \subseteq \{e\}$.
+    Temos então que a série de G: $H^{\bullet}: \{e\} \leq H_1 \leq \dots \leq H_n = G$ é subnormal, cujo grupos fatores são todos abelianos.
+    Logo G é solúvel.
+\end{proof}
+
+\begin{theorem}
+    Sejam G um grupo e H um subgrupo normal de G. Então G é solúvel se e somente se H e $G/H$ são também soluveis.
+\end{theorem}
+
+\begin{proof}
+    Seja $\varphi: G \rightarrow G/H$ o homomorfismo canônico. Vamos primeiro mostar que $\varphi(G') = (\varphi(G))'$.
+    Seja $[x, y] \in G'$ um comutador de G. Aplicando $\varphi$ temos
+    \[\varphi([x, y]) = \varphi(xyx^{-1}y^{-1}) = (xyx^{-1}y^{-1})H = (xH)(yH)(x^{-1}H)(y^{-1}H) = [xH, yH] \in (G/H)'\]
+    Logo $f(G') \subseteq (G/H)'$.
+    Tome agora $[\overline{x}, \overline{y}] \in (G/H)'$, em que $\overline{x} = xH$ e $\overline{y} = yH$.
+    Temos então
+    \[[\overline{x}, \overline{y}] = \overline{x}\overline{y}\overline{x}^{-1}\overline{y}^{-1} = (xH)(yH)(x^{-1}H)(y^{-1}H) = (xyx^{-1}y^{-1})H = \varphi([x, y])\]
+    Assim, $(G/H)' \subseteq f(G')$, e então $\varphi(G') = (\varphi(G))'$.
+    Segue então que 
+    \[\varphi(G^{(2)}) = \varphi((G')')=(\varphi(G'))'=((\varphi(G)'))'=(\varphi(G))^{(2)}\]
+    e indutivamente temos $\varphi(G^{(i)}) = (\varphi(G))^{(i)} = (G/H)^{(i)}$ para todo $i \geq 0$.
+    Suponha então que G é solúvel e seja n um inteiro tal que $G^{(n)} = \{e\}$, segue que $H^{(n)} = \{e\}$
+    e $(G/H)^{(n)}=\varphi(G^{(n)})=\varphi(\{e\})=\{e\}$. Ou seja, os grupos H e $G/H$ são soluveis. 
+    Reciprocamente, suponha que H e $G/H$ são soluveis e sejam n e m inteiros tais que $H^{(n)}=\{e\}$ e $(G/H)^{(m)}=\{e\}$.
+    Como $\{e\}=(G/H)^{(m)}=\varphi(G^{(m)})$, temos $G^{(m)} \subseteq \ker \varphi = H$.
+    Logo $G^{(n+m)} = (G^{(m)})^{(n)} \subseteq H^{(n)} = \{e\}$, e assim ganhamos que G é solúvel.
+\end{proof}
+
+Por fim, vamos definir mais um objeto de estudo e enunciar um útilmo teorema.
+
+\begin{definition}
+    Um polinômio $p(x) \in K[x]$, onde $K$ é um corpo (como $\mathbb{Q}$), é dito expresso por radicais ou resolúvel por radicais
+    se todas suas raízes podem ser obtidas a partir de elementos de $K$ usando uma combinação finita das operações aritmeticas e raizes n-esimas.
+\end{definition}
+
+\begin{theorem}
+    As raizes de um polinômio podem ser expressa por radicais se e somente se o grupo de permutações do polinômio é solúvel.
+\end{theorem}
+
+Finalmente, sabemos que o grupo de permutações de um polinômio de grau maior ou igual 5 é o $S_n$. Como vimos pelo Corolário 3, $A_n$ e $S_n$ são os 
+únicos subgrupos normais de $S_n$. Mas para $n \geq 5$, $A_n$ é simples e portanto não é abeliano e donde segue que $A_n$ não é solúvel.
+Logo pelo teorema anterior $S_n$ não é solúvel, e pelo teorema de Galois, o polinômio de grau maior ou igual a 5 não pode ser escrito 
+por radicais. Isso equivale a dizer que não temos uma fórmula geral para esses polinômios.
+
+\end{document} 

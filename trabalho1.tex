@@ -338,8 +338,49 @@
     e então faltam as reflexões. Tome então uma s uma reflexão de $D_4$.
     Novamente pela relação $s^2=1$, temos que $\left\langle s\right\rangle = \{1, s\}$, assim faltando todas as demais reflexões e todas as rotações.
     Logo nenhum elemento de $D_4$ gera todo as simetrias e portanto $D_4$ não é ciclico.
-    (e)
+    (e) Antes de mostrarmos que $D_n < S_n$, vamos ver que toda simetria em $D_n$ é uma permutação dos vértices.
+    Para isso, vamos mostrar que rotações e reflexões são permutação, e como esses são os geradores das simetrias 
+    em $D_n$, mostramos que todas são.
+    Uma rotação em um poligono de n lados é uma permutação ciclica nos vertices do poligono. 
+    Então r uma rotação leva $r(i)=i+1$. Por exemplo, em $D_4$, uma rotação 
+    de $90^{\circ}$ no sentido horário é a permutação dos vértices $(1234)$.
+    Já uma reflexão é uma permutação que age nos vertices em pares. Note 
+    que em ambos os casos de reflexão isso vale, já que uma reflexão que fixa
+    um vertice (caso n ímpar), temos $n-1$ vértices para mudar e como n é impar, n-1 é par, logo temos $\frac{n-1}{2}$ mudanças.
+    Para o caso n par, isso também vale, seja fixando um par de vértices ou não fixando nenhum.
+    Como as simetrias são geradas por rotações e reflexões, qualquer produto de duas simetrias ainda é uma simetria em $D_n$, logo é fechado para o produto.
+    Temos também um elemento neutro, a simetria identidade.
+    Além disso, toda simetria tem um elemento inverso. Para mostrar isso vamos mostrar que toda rotação e toda reflexão possuem inversos.
+    Tome $r_k$ uma rotação, sabemos que vale a relação $r^n=1$, então se r é uma rotação dada por
+    $r_k(i)=i+k$, segue que $r_k = r^k$ e então o inverso de $r_k$ é $r^{n-k}$, 
+    uma vez que, $r_kr^{n-k}=r^kr^{n-k}=r^{n-k+k}=r^n=1$. Para as reflexões, basta notar que
+    segue da relação $s^2=1$ que o inverso é ela mesma.
+    Assim $D_n$ é um subgrupo de $S_n$.
+\end{ex}
 
+\begin{ex}[Semana 2 - 4]
+    Primeiro precisamo mostrar que $G/G'$ é um grupo. 
+    Para isso, basta verificar se $G' \vartriangleleft G$.
+    Tome então um comutador de G, ou seja, $[x, y] \in G'$ e vamos mostrar que vale a inclusão para todo $g \in G$.
+    Lembre que vale $[x, y]= xyx^{-1}y^{-1}$, então segue
+    \[g[x,y]g^{-1}=g(xyx^{-1}y^{-1})g^{-1}=(gxg^{-1})(gyg^{-1})(gx^{-1}g^{-1})(gy^{-1}g^{-1})\]
+    Vamos mostrar que $(gxg^{-1})^{-1}=gx^{-1}g^{-1}$. Seja então d o inverso de $gxg^{-1}$, segue então
+    \begin{align*}
+        gxg^{-1}d &= 1 \\
+        xg^{-1}d &= g^{-1} \\
+        g^{-1}d &= x^{-1}g^{-1} \\
+        d &= gx^{-1}g^{-1} \\
+    \end{align*}
+    Note que o mesmo vale para y.
+    Então temos que 
+    \[g[x,y]g^{-1} = (gxg^{-1})(gyg^{-1})(gxg^{-1})^{-1}(gyg^{-1})^{-1}=[gxg^{-1}, gyg^{-1}] \in G'\]
+    Logo $G' \vartriangleleft G$.
+    Agora que garantimos que $G/G'$ é um grupo, vamos mostrar que ele é abeliano. 
+    Queremos mostrar então para $g_1, g_2 \in G$
+    \[(g_1G')(g_2G') = (g_2G')(g_1G') \Leftrightarrow g_1g_2G'=g_2g_2G'\]
+    Ou seja, queremos ver ser $g_1g_2(g_2g_1)^{-1} \in G'$. 
+    Mas note que, $g_1g_2(g_2g_1)^{-1} = g_1g_2g_2^{-1}g_1^{-1} = [g_1, g_2] \in G'$.
+    Logo $G/G'$ é abeliano.
 \end{ex}
 
 \end{document}
