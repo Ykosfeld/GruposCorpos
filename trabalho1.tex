@@ -1,0 +1,345 @@
+\documentclass{article}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\newtheorem*{definition}{Definição}
+\newtheorem*{theorem}{Teorema}
+\newtheorem*{exemple}{Exemplo}
+\newtheorem*{atencao}{Atenção}
+\newtheorem*{proposicao}{Proposição}
+\newtheorem*{ex}{Exercício}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclareMathOperator{\Ima}{Im}
+
+\setlength{\textwidth}{450pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+\usepackage[left=2.5cm, right=2.5cm]{geometry}
+
+\title{Trabalho 1 \\ \large Grupos e Corpos}
+\author{Yuri Kosfeld}
+\date{Abril 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{ex}[Semana 1 - 13]
+    (a) Para facilitar a explicação, vamos numerar os vértices do poligono de maneira ordenada de 1 até n.
+    Uma rotação nesse poligono é uma forma de ciclar entre os vértices. Então se o nosso poligono
+    tem 4 lados, temos 4 vértices: 1, 2, 3, 4. Se aplicarmos uma rotação nesse poligono os vértices
+    agora trocam de indexação e vao de 1234 para 4123. Aplicando mais uma vez vamos para 3412 e assim por diante.
+    A relação $r^n = 1$ é equivalente a dizer aplicar n rotações no poligono é a mesma ação de não aplicar rotação nenhuma.
+    Visualmente é intuitivo pensar dessa forma, por exemplo, no nossa caso de n = 4, se olharmos
+    o vértices da primeira posição, apos 4 rotações voltamos ao 1, ou seja, é igual a não ter feito
+    rotação alguma. As reflexões no poligono são equivalentes a espelhamentos sobre um eixo do poligono de simetria desse poligono.
+    Ou seja, as reflexões sobre um dado eixo não podem "mudar" o nosso poligono. De modo geral temos duas 
+    possibilidades de reflexões, as que fixam vértices e as que não vixam vértice algum.
+    Em ambos os casos não é dificil notar que aplicando a mesma reflexão duas vezes seguidas
+    voltamos ao estado inicial. Assim vem a relação de $s^2=1$.
+    \begin{center}
+        \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt       
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+        %Shape: Square [id:dp11542187000741944] 
+        \draw   (50,60) -- (100,60) -- (100,110) -- (50,110) -- cycle ;
+        %Straight Lines [id:da31369456332723833] 
+        \draw    (105,83.5) -- (134,83.97) ;
+        \draw [shift={(136,84)}, rotate = 180.92] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da31002343470221183] 
+        \draw    (46.33,56.67) -- (104.33,114.33) ;
+        %Shape: Square [id:dp9946696417593814] 
+        \draw   (140.67,60.67) -- (190.67,60.67) -- (190.67,110.67) -- (140.67,110.67) -- cycle ;
+        %Straight Lines [id:da6966810167833951] 
+        \draw    (195.67,84.17) -- (224.67,84.63) ;
+        \draw [shift={(226.67,84.67)}, rotate = 180.92] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Shape: Square [id:dp5694789197294783] 
+        \draw   (230.67,60.67) -- (280.67,60.67) -- (280.67,110.67) -- (230.67,110.67) -- cycle ;
+        %Straight Lines [id:da49098578373547497] 
+        \draw    (285.67,84.17) -- (314.67,84.63) ;
+        \draw [shift={(316.67,84.67)}, rotate = 180.92] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da29576404756363095] 
+        \draw    (227,57.33) -- (285,115) ;
+        %Shape: Square [id:dp8601576122979447] 
+        \draw   (320.33,61.33) -- (370.33,61.33) -- (370.33,111.33) -- (320.33,111.33) -- cycle ;
+        %Curve Lines [id:da18440816847451147] 
+        \draw    (78.33,118.67) .. controls (107.04,149.36) and (299.1,142.48) .. (341.75,121.31) ;
+        \draw [shift={(343,120.67)}, rotate = 151.56] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+        % Text Node
+        \draw (37.67,40.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (100,42) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (104.67,106) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (38.67,106) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (128.33,41.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (190.67,42.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (195.33,106.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (129.33,106.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (218.33,41.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (280.67,42.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (285.33,106.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (219.33,106.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (308,42) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (370.67,43.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (375,107.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (309,107.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (114.33,64.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+        % Text Node
+        \draw (295.33,64) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+        % Text Node
+        \draw (208,64) node [anchor=north west][inner sep=0.75pt]   [align=left] {r};
+        % Text Node
+        \draw (189.33,143) node [anchor=north west][inner sep=0.75pt]   [align=left] {r\textasciicircum -1};
+        \end{tikzpicture}
+    \end{center}
+    (b) Como $D_n$ é gerado por todos os possiveis produtos de rotações e reflexões, para calcular
+    a ordem de $D_n$ é suficiente contar quantas rotações e quantas reflexões são possiveis a depender de n.
+    Pela relação $r^n = 1$ segue que temos n rotações em $D_n$. Agora para as reflexões, precisamos
+    separar nos casos, n par e n impar. Se n for par, então temos dois tipos de reflexões, as que fixam 
+    dois vértices e as que não vixam nenhum. Para as que fixam 2 vértices, temos então $n/2$ reflexões possiveis.
+    Já para as reflexões que não fixam nenhum vértice, elas são as reflexões cujos eixos passam pelos
+    pontos medios de lados opostos. Assim também temos $n/2$ reflexões. Logo o número total de reflexões é n.
+    Para n impar, é mais simples. As únicas reflexões são aquelas que fixam um vértice, logo 
+    temos n reflexões. Assim
+    \[|D_n| = |\text{rotações}| + |\text{reflexões}| = n + n = 2n\]
+    (c)
+    \begin{center}
+        \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,253); %set diagram left start at 0, and has height of 253
+
+        %Shape: Triangle [id:dp27316798163488343] 
+        \draw   (217.5,32.5) -- (252.5,87.36) -- (182.5,87.36) -- cycle ;
+        %Shape: Triangle [id:dp5149210388591837] 
+        \draw   (324.5,33) -- (359.5,87.86) -- (289.5,87.86) -- cycle ;
+        %Shape: Triangle [id:dp06578896516364685] 
+        \draw   (425.5,33.5) -- (460.5,88.36) -- (390.5,88.36) -- cycle ;
+        %Shape: Triangle [id:dp4198540414173709] 
+        \draw   (214.5,161.5) -- (249.5,216.36) -- (179.5,216.36) -- cycle ;
+        %Shape: Triangle [id:dp908594080810223] 
+        \draw   (324.5,161.5) -- (359.5,216.36) -- (289.5,216.36) -- cycle ;
+        %Shape: Triangle [id:dp2676478360786132] 
+        \draw   (428,163.5) -- (463,218.36) -- (393,218.36) -- cycle ;
+        %Straight Lines [id:da09562310036490274] 
+        \draw    (257.5,56.5) -- (288,56.97) ;
+        \draw [shift={(290,57)}, rotate = 180.88] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da2805382139907] 
+        \draw    (364,56.5) -- (394.5,56.97) ;
+        \draw [shift={(396.5,57)}, rotate = 180.88] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da36402917029534343] 
+        \draw    (213.43,103.58) -- (213.02,136.5) ;
+        \draw [shift={(213,138.5)}, rotate = 270.7] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da4144241143801658] 
+        \draw    (230.5,105.5) -- (277.21,160.48) ;
+        \draw [shift={(278.5,162)}, rotate = 229.65] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da6082468836407046] 
+        \draw    (259.5,107) -- (386.13,155.78) ;
+        \draw [shift={(388,156.5)}, rotate = 201.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+        % Text Node
+        \draw (211.5,13.9) node [anchor=north west][inner sep=0.75pt]    {$1$};
+        % Text Node
+        \draw (170.5,84.9) node [anchor=north west][inner sep=0.75pt]    {$3$};
+        % Text Node
+        \draw (254.5,85.76) node [anchor=north west][inner sep=0.75pt]    {$2$};
+        % Text Node
+        \draw (318.5,14.4) node [anchor=north west][inner sep=0.75pt]    {$3$};
+        % Text Node
+        \draw (277.5,85.4) node [anchor=north west][inner sep=0.75pt]    {$2$};
+        % Text Node
+        \draw (361.5,86.26) node [anchor=north west][inner sep=0.75pt]    {$1$};
+        % Text Node
+        \draw (419.5,14.9) node [anchor=north west][inner sep=0.75pt]    {$2$};
+        % Text Node
+        \draw (378.5,85.9) node [anchor=north west][inner sep=0.75pt]    {$1$};
+        % Text Node
+        \draw (462.5,86.76) node [anchor=north west][inner sep=0.75pt]    {$3$};
+        % Text Node
+        \draw (208.5,142.9) node [anchor=north west][inner sep=0.75pt]    {$1$};
+        % Text Node
+        \draw (167.5,213.9) node [anchor=north west][inner sep=0.75pt]    {$2$};
+        % Text Node
+        \draw (251.5,214.76) node [anchor=north west][inner sep=0.75pt]    {$3$};
+        % Text Node
+        \draw (318.5,142.9) node [anchor=north west][inner sep=0.75pt]    {$3$};
+        % Text Node
+        \draw (277.5,213.9) node [anchor=north west][inner sep=0.75pt]    {$1$};
+        % Text Node
+        \draw (361.5,214.76) node [anchor=north west][inner sep=0.75pt]    {$2$};
+        % Text Node
+        \draw (422,144.9) node [anchor=north west][inner sep=0.75pt]    {$2$};
+        % Text Node
+        \draw (381,215.9) node [anchor=north west][inner sep=0.75pt]    {$3$};
+        % Text Node
+        \draw (465,216.76) node [anchor=north west][inner sep=0.75pt]    {$1$};
+        % Text Node
+        \draw (267.64,37.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {r};
+        % Text Node
+        \draw (374.14,36) node [anchor=north west][inner sep=0.75pt]   [align=left] {r};
+        % Text Node
+        \draw (199.64,109.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+        % Text Node
+        \draw (254.14,117.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+        % Text Node
+        \draw (325.64,114.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+        \end{tikzpicture}
+    \end{center}
+    \begin{center}
+        $D_3$
+    \end{center}
+    \begin{center}
+        \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+        %Shape: Square [id:dp7216412607374494] 
+        \draw   (31,35.33) -- (81,35.33) -- (81,85.33) -- (31,85.33) -- cycle ;
+        %Straight Lines [id:da018946078414078027] 
+        \draw    (86,58.83) -- (115,59.3) ;
+        \draw [shift={(117,59.33)}, rotate = 180.92] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Shape: Square [id:dp3211094666869254] 
+        \draw   (121.67,36) -- (171.67,36) -- (171.67,86) -- (121.67,86) -- cycle ;
+        %Straight Lines [id:da18400820847151056] 
+        \draw    (176,59.83) -- (205,60.3) ;
+        \draw [shift={(207,60.33)}, rotate = 180.92] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Shape: Square [id:dp597588242882821] 
+        \draw   (211.67,37) -- (261.67,37) -- (261.67,87) -- (211.67,87) -- cycle ;
+        %Straight Lines [id:da6641535414657286] 
+        \draw    (272.33,61.5) -- (301.33,61.97) ;
+        \draw [shift={(303.33,62)}, rotate = 180.92] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Shape: Square [id:dp04533339988683438] 
+        \draw   (308,38.67) -- (358,38.67) -- (358,88.67) -- (308,88.67) -- cycle ;
+        %Shape: Square [id:dp21519751857132374] 
+        \draw   (31.33,142) -- (81.33,142) -- (81.33,192) -- (31.33,192) -- cycle ;
+        %Shape: Square [id:dp9433827211127012] 
+        \draw   (122,142.67) -- (172,142.67) -- (172,192.67) -- (122,192.67) -- cycle ;
+        %Shape: Square [id:dp09312841383495163] 
+        \draw   (212,143.67) -- (262,143.67) -- (262,193.67) -- (212,193.67) -- cycle ;
+        %Shape: Square [id:dp7986970731534507] 
+        \draw   (308.33,145.33) -- (358.33,145.33) -- (358.33,195.33) -- (308.33,195.33) -- cycle ;
+        %Straight Lines [id:da48326344257362375] 
+        \draw    (27,137.67) -- (86.67,197) ;
+        %Straight Lines [id:da9632376599339169] 
+        \draw    (119.67,195.33) -- (174.67,140.67) ;
+        %Straight Lines [id:da801522782031135] 
+        \draw    (195.5,169) -- (278.5,168.33) ;
+        %Straight Lines [id:da39167069544145217] 
+        \draw    (333.17,201) -- (333.5,139.67) ;
+
+        % Text Node
+        \draw (18.67,16) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (81,17.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (85.67,81.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (19.67,81.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (109.33,16.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (171.67,18) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (176.33,82) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (110.33,82) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (199.33,17.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (261.67,19) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (266.33,83) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (200.33,83) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (295.67,19) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (358.33,20.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (362.67,84.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (296.67,84.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (95,37.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {r};
+        % Text Node
+        \draw (185.67,38.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {r};
+        % Text Node
+        \draw (285,41.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {r};
+        % Text Node
+        \draw (19,122.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (81.33,124) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (86,188) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (20,188) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (109.67,123.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (172,124.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (176.67,188.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (110.67,188.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (199.67,124.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (262,125.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (266.67,189.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (200.67,189.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (296,125.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+        % Text Node
+        \draw (358.67,127) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+        % Text Node
+        \draw (363,191.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+        % Text Node
+        \draw (297.33,191.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+        % Text Node
+        \draw (49.33,162.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+        % Text Node
+        \draw (279,158.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+        % Text Node
+        \draw (145.33,162.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+        % Text Node
+        \draw (328.67,196.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {s};
+        \end{tikzpicture}
+    \end{center}
+    \begin{center}
+        $D_4$
+    \end{center}
+    (d) Para $D_4$ ser ciclico, ele deve ser gerado por um único elemento de $D_4$.
+    Vamos mostrar que isso não é possivel.
+    Tome primeiro r uma rotação. Pela relação $r^n = 1$, temos que $\left\langle r\right\rangle = \{1, r, r^2, r^3\}$,
+    e então faltam as reflexões. Tome então uma s uma reflexão de $D_4$.
+    Novamente pela relação $s^2=1$, temos que $\left\langle s\right\rangle = \{1, s\}$, assim faltando todas as demais reflexões e todas as rotações.
+    Logo nenhum elemento de $D_4$ gera todo as simetrias e portanto $D_4$ não é ciclico.
+    (e)
+
+\end{ex}
+
+\end{document}
