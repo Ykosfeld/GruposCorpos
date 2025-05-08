@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{tikz}
+\usepackage{amssymb}
 
 \newtheorem*{definition}{Definição}
 \newtheorem*{theorem}{Teorema}
@@ -369,7 +370,7 @@
         gxg^{-1}d &= 1 \\
         xg^{-1}d &= g^{-1} \\
         g^{-1}d &= x^{-1}g^{-1} \\
-        d &= gx^{-1}g^{-1} \\
+        d &= gx^{-1}g^{-1}
     \end{align*}
     Note que o mesmo vale para y.
     Então temos que 
@@ -381,6 +382,95 @@
     Ou seja, queremos ver ser $g_1g_2(g_2g_1)^{-1} \in G'$. 
     Mas note que, $g_1g_2(g_2g_1)^{-1} = g_1g_2g_2^{-1}g_1^{-1} = [g_1, g_2] \in G'$.
     Logo $G/G'$ é abeliano.
+\end{ex}
+
+\begin{ex}[Semana 2 - 11]
+    Primeiro vamos notar o que acontece com 
+\end{ex}
+
+\begin{ex}[Semana 2 - 12]
+    Queremos mostrar que existe $x \in G$ tal que a ordem de x é p.
+    Para isso vamos provar usando indução na ordem de G. Denotaremos $|G|= n $.
+    Como caso base, vamos verificar quando $n = p$.
+    Segue pelo corolario do Teorema de Lagrange, que G é ciclico, logo $G = \left\langle x \right\rangle $, 
+    e portanto $o(x) = |G|$, equivalente a $x^p = e_G$. Assim provado para o caso base.
+    Lembre que G é abeliano. Tome então $a \in G$ tal que $a \neq e_G$ e defina $H = \left\langle a \right\rangle $.
+    Se $p \vert |H|$ então $a^{|H|/p}$ é um elemento de ordem p, e novamente temos solução.
+    Se $p \nmid |H|$ então pelo Teorema de Lagrange, $p \vert (G : H)$.
+    Mas $(G : H) = |G / H|$ e portanto $p \vert | G / H|$.
+    Logo pela hipotese de indução, tem um elemento de $xH$ para algum $x \in G$ que tem ordem p.
+    Seja m é a ordem de x em G, então $(xH)^m=eH \in G/H$. 
+    Donde segue que $p\vert m$ e então $x^{m/p}$ tem ordem p.
+\end{ex}
+
+\begin{ex}[Semana 3 - 7]
+    Queremos mostrar que $Z(G)$ não é trivial.
+    Para isso, vamos provar que \[|Z(G)| > 1\] já que se $Z(G)$ fosse trivial, teriamos $Z(G) = \{e_G\}$ e então $|Z(G)| = 1$.
+    Sabemos que a ordem de G é uma potência de p, então p divide a ordem de G.
+    Então pela Equação das Classes Conjugadas de G, todos os termos $(G:C(g_i))$ são diviseis por p.
+    Pelo Teorema de Lagrange, $(G:C(g_i))$ é um divisor da ordem de G e portanto é uma potência de p. 
+    Novamente, pela Equação das Classes Conjugadas de G, temos 
+    \[ p^n = | G | = | Z(G) | + \sum p^m_i\]
+    em que cada $m_i$ é o expoente de cada $(G:C(g_i))$.
+    Logo,
+    \[| Z(G) | \equiv p^n - \sum p^m_i \equiv 0 \mod p\]
+    Como $| Z(G) | \geq 1$ e $| Z(G) | \equiv 0 \mod p$ temos que $| Z(G) | \geq p > 1$.
+    Assim $Z(G)$ é não trivial.
+\end{ex}
+
+\begin{ex}[Semana 3 - 8]
+    Para provarmos esse resultado, primeiro vamos notar primeiro que G é abeliano se somente se $G = Z(G)$.
+    Não é dificl notar isso dado a definição do centro de G.
+    Dadas as hipoteses de G, vamos mostrar que G é abeliano.
+    Suponha por contradição que $Z(G) \neq G$. 
+    Tome então $a \in G \setminus Z(G)$.
+    Assim $C(a)$ é subgrupo de G que contém a e Z(G), já que todos os elementos de Z(G) comutam.
+    Como vimos no exercicio anterior, Z(G) não é trivial e mais, $|Z(G)| \geq p$.
+    Além disso, temos também que $|C(a)| \geq |Z(G)| + 1 = p + 1$.
+    Pelo Teorema de Lagrange, a ordem de C(a) deve dividir a ordem de G.
+    Logo temos duas, possibilidades: ou $|C(a)| = p$ ou $|C(a)|=p^2$. 
+    Mas como visto anteriormente, $|C(a)| \geq p + 1$ assim a única possibilidade válida é $|C(a)| = p^2$.
+    Então $C(a) = G$ e então todos os elementos de G comutam e portanto $a \in Z(G)$ uma contradição.
+\end{ex}
+
+\begin{ex}[Semana 3 - 12]
+    Vamos analisar os p-subgupos de Sylow para G.
+    Segue do Terceiro Teorema de Sylow que $n_q \equiv 1 \mod q$ e $n_q \vert p$.
+    Temos então duas possibilidades para $n_q$.
+    Se $n_q = p$ então $p \equiv 1 \mod q$, o que não pode acontecer, já que $p < q$ e são primos.
+    Logo, por força $n_q = 1$. Ou seja, existe um unico q-subgrupo de sylow. 
+    Seja Q esse subgrupo, e então sabemos que Q é normal pela unicidade.
+    Vamos analisar agora $n_p$. 
+    $n_p \equiv 1 \mod p$ e $n_p \vert q$.
+    Nessas condições, vamos ver que $n_p = 1$ ou $n_p = q$.
+    Se $n_p = q$ então $q - 1 \equiv 0 \mod p$, o que contradiz a hipotese de $p \nmid q-1$.
+    Logo $n_p =1 $ e também tem um unico P p-sugrupo de sylow em G e portanto P é normal.
+    Sabemos que $P \cap Q = \{e_G\}$.
+    Queremos mostrar agora que $PQ = QP$, ou seja, que PQ é abeliano.
+    Para todo $x \in P$ e $y \in Q$ considere $xyx^{-1}y^{-1}$.
+    Como Q é normal, segue que $xyx^{-1} \in Q \Rightarrow xyx^{-1}y^{-1} \in Q$.
+    Também temos que P é normal, portanto $yxy^{-1} \in P \Rightarrow xyx^{-1}y^{-1} \in P$.
+    Mas como vimos pela interseção de P e Q, segue então $xyx^{-1}y^{-1} = 1 \Rightarrow xy = yx$.
+    Finalmente, temos que $|PQ| = pq = |G|$ e então $G = PQ$ e G é abeliano.
+\end{ex}
+
+\begin{ex}[Semana 4 - 6]
+    Sabemos que em $S_4$ os únicos subgrupos normais são $\{e\}, V_4, A_4$ e o proprio $S_4$.
+    Aqui $V_4$ é o grupo de Klein, dado por
+    \[V_4 = \{ e, (12)(34), (13)(24), (14)(23) \}\]
+    Sabemos que $V_4$ é abeliano e portanto todo subgrupo dele é normal. 
+    Se então construirmos a serie subnormal 
+    \[\{e\} \leq \left\langle (12)(34)\right\rangle \leq V_4 \leq S_4 \]
+    satisfaz as condições, dadas as propriedades de $V_4$, mas tem o grupo $\left\langle (12)(34)\right\rangle$ não é normal em $S_4$.
+    Logo é uma serie subnormal que não é normal.
+\end{ex}
+
+\begin{ex}[Semana 4 - 7]
+    
+\end{ex}
+
+\begin{ex}[Semana 4 - 11]
+    
 \end{ex}
 
 \end{document}
