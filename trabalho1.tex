@@ -460,7 +460,7 @@
     \[V_4 = \{ e, (12)(34), (13)(24), (14)(23) \}\]
     Sabemos que $V_4$ é abeliano e portanto todo subgrupo dele é normal. 
     Se então construirmos a serie subnormal 
-    \[\{e\} \leq \left\langle (12)(34)\right\rangle \leq V_4 \leq S_4 \]
+    \[\{e\} \leq \left\langle (12)(34)\right\rangle \leq V_4 \leq S_4 \] 
     satisfaz as condições, dadas as propriedades de $V_4$, mas tem o grupo $\left\langle (12)(34)\right\rangle$ não é normal em $S_4$.
     Logo é uma serie subnormal que não é normal.
 \end{ex}
@@ -470,7 +470,37 @@
 \end{ex}
 
 \begin{ex}[Semana 4 - 11]
-    
+    Para isso vamos dividir nossos casos com base nas ordens possiveis que satisfazem certas propriedades.
+    \textbf{Caso 1}: $|G| = p$ com p primo. Nesse caso temos que G é ciclico e portanto ciclico.
+    Como G é abeliano sabemos que G é soluvel. Para esse caso, a cardinalidade de G pode ser
+    \[|G| = 2, 3, 5, 7, 13, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59\]
+    \textbf{Caso 2}: Se G é um p-subgrupo. Como mostramos no exercicio 8 da semana 3, Z(G) não é trivial e também mostramos
+    que G é abeliano. Logo novamente G é soluvel.
+    As cardinalidades que se encaixam nesse caso são as de potencias de primo.
+    Logo as cardinalidades desse caso são
+    \[|G| = 4, 8, 9 ,16, 25, 27, 32, 49\]
+    \textbf{Caso 3}: $|G| = pq$ com p, q primos com  $p \vert q-1 $. 
+    Segue do exercicio 12 da semana 3 que G é abeliano, logo soluvel.
+    As cardinalidades desse caso são
+    \[|G| = 6, 10, 14, 15, 21, 22, 26, 33, 34, 35, 38, 39, 46, 51, 55, 57, 58\]
+    \textbf{Caso 4}: $|G| = p^2q$. A prova é semelhante ao caso pq. Chegamos a conclusão
+    que G tem so um unico p-sugrupo de sylow, logo é normal em G, e portanto G é soluvel.
+    As cardinalidades desse caso são:
+    \[|G| = 12, 18, 20, 28, 44, 45, 50, 52\]
+    Acabaram de certa forma os casos, e agora precisamos verificar as caridinalidades que faltam.
+    \textbf{$|G| = 24$}: Vamos mostrar que $|G| = 24$ não é simples. $24 = 2^{3}3$. 
+    Pelo Terceiro Teorema de Sylow, $n_2 = 1$ ou $n_2$. Se $n_2 =1$, então G não é simples e portanto é soluvel.
+    Assuma então $n_2 = 3$ G agindo por conjugação em 2-subgrupo de sylow, conseguimos um homomorfismo $\varphi: G \to S_3$.
+    Como $24 = |G|>|S_3| = 6 $, temos que o nucleo de $\varphi$ não é trivial e normal. 
+    \textbf{$|G| = 36$}: Novamente por sylow, $n_3 = 1$ ou $n_3 = 4$. $n_3 = 1$ é de novo não simples. 
+    Seja então $n_3 = 4$, e por uma ação por conjugação semelhante ao caso anterior e G não é simples e então soluvel.
+    \textbf{$|G| = 40 = 2^3 5$}: $n_5 \equiv 1 \mod 5$ e $n_5 \vert 2^3$, então por força $n_5 = 1$. Então o 5-sugbrupo de sylow 
+    é unico e G é normal e portanto soluvel.
+    \textbf{$|G| = 48 = 2^4 3$}: Se $n_2 = 3$ ou $n_3=4$, então temos um homomorfismo com kernel não trivial se 
+    agirmos G por conjugação em 2-subgrupo de sylow de G ou 3-subgrupo de sylow de G, respectivamente.
+    \textbf{$|G| = 54 = 2 \cdot 3^3$}: $n_3 \equiv 1 \mod 3$ e $n_3 \vert 2$, logo $n_3 =1 $ e portanto o 3-sugbrupo é unico e normal.
+    \textbf{$|G| = 56 = 2^3 \cdot 7$}: Se $n_2 = 1 $ ou $n_7 = 1 $. Então $n_7 = 8$ Cada 7-subgrupo de sylow tem 7 elementos e todos eles se 
+    intersectam somente no elemento neutro, logo G tem $8(7-1)=48$ elementos distintos de ordem 7. Logo é normal e portanto soluvel.
 \end{ex}
 
 \end{document}
