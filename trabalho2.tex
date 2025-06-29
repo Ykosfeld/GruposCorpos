@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{amssymb}
+
+\newtheorem*{definition}{Definição}
+\newtheorem*{theorem}{Teorema}
+\newtheorem*{exemple}{Exemplo}
+\newtheorem*{atencao}{Atenção}
+\newtheorem*{proposicao}{Proposição}
+\newtheorem*{ex}{Exercício}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclareMathOperator{\Ima}{Im}
+
+\setlength{\textwidth}{450pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+\usepackage[left=2.5cm, right=2.5cm]{geometry}
+
+\title{Trabalho 2 \\ \large Grupos e Corpos}
+\author{Yuri Kosfeld}
+\date{Junho 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{ex}[4.1.8]
+    a) Poderiámos provar utilizando Eisenstein, mas vamos mostrar por um processo analogo a um exemplo dessa seção.
+    Informalmente, sabemos que uma raiz de $x^2 -3$ é $\sqrt{3}$, assim sabemos que o polinomio pode ser reescrito como 
+    $x^2 -3 = (x - \sqrt{3})(x + \sqrt{3})$. Então se $\sqrt{3} \in \mathbb{Q}(\sqrt{2})$, o polinomio é redutivel.
+    Suponha então que $\sqrt{3} \in \mathbb{Q}(\sqrt{2})$. Logo $\exists a, b \in \mathbb{Q}$ tais que $\sqrt{3} = a + b\sqrt{2}$.
+    \begin{align*}
+        (\sqrt{3})^2 &= (a + b\sqrt{2})^2 \\
+        3 &= a^2 + 2ab\sqrt{2} + 2b^2 \\
+        &= (a^2 + 2b^2) + (2ab)\sqrt{2}\\
+    \end{align*}
+    Assim temos, $a^2 + 2b^2 = 3$ e $2ab = 0$.
+    Como $2ab = 0$, então ou $a = 0$ ou $b = 0$.
+    \begin{itemize}
+        \item Se $a = 0$, então $2b^2 = 3 \Rightarrow b = \sqrt{3/2}$ e logo $b \notin \mathbb{Q}$, absurdo.
+        \item O caso $b = 0$ é analago ao anterior, também chegando em um absurdo. 
+    \end{itemize}
+    Logo $\sqrt{3} \notin \mathbb{Q}(\sqrt{2})$ e assim o polinomio é irredutivel.
+\end{ex}
+
+\end{document}
